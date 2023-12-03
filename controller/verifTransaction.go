@@ -44,7 +44,7 @@ func VerifTransaction(w http.ResponseWriter, r *http.Request) {
 		idSession = r.FormValue("TBK_ID_SESION")
 
 		logEntries = append(logEntries, LogEntry{
-			Message: "estado de transaccion",
+			Message: "Estado de transaccion",
 			Status: "ANULADO",
 			BuyOrder: numberOrder,
 			SessionID: idSession,
@@ -60,8 +60,8 @@ func VerifTransaction(w http.ResponseWriter, r *http.Request) {
 	
 	if estado.Status == "AUTHORIZED" {
 		logEntries = append(logEntries, LogEntry{
-			Message: "estado de transaccion",
-			Status: "RECHAZADO",
+			Message: "Estado de transaccion",
+			Status: "AUTORIZADO",
 			Amount: estado.Amount,
 			BuyOrder: estado.BuyOrder,
 			SessionID: estado.SessionID,
@@ -75,7 +75,7 @@ func VerifTransaction(w http.ResponseWriter, r *http.Request) {
 	
 	if estado.Status == "FAILED" {
 		logEntries = append(logEntries, LogEntry{
-			Message: "estado de transaccion",
+			Message: "Estado de transaccion",
 			Status: "RECHAZADO",
 			Amount: estado.Amount,
 			BuyOrder: estado.BuyOrder,
